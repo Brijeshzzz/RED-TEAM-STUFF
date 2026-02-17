@@ -1,0 +1,79 @@
+============================================================
+  CPU & Assembly Debugging Lab - Full GDB Session Log
+  Date: February 17, 2026
+  Environment: Kali Linux, GDB 7.12
+============================================================
+
+STEP 1: First compile - DWARF error hit
+$ gcc -g test.c -o test
+ERROR: Dwarf Error: wrong version in compilation unit header
+
+FIX:
+$ gcc -g -gdwarf-4 test.c -o test
+
+------------------------------------------------------------
+LEVEL 1 - Assembly + Registers
+------------------------------------------------------------
+(gdb) break main
+Breakpoint 1 at 0x555555555157: file test.c, line 9.
+
+(gdb) run
+Breakpoint 1, main () at test.c:9
+
+(gdb) step
+add (a=5, b=10) at test.c:4
+
+(gdb) disassemble add
+   0x0000555555555135 <+0>:    push   %rbp
+   0x0000555555555136 <+1>:    mov    %rsp,%rbp
+   0x0000555555555139 <+4>:    mov    %edi,-0x14(%rbp)
+   0x000055555555513c <+7>:    mov    %esi,-0x18(%rbp)
+   0x000055555555513f <+10>:   mov    -0x14(%rbp),%edx
+   0x0000555555555142 <+13>:   mov    -0x18(%rbp),%eax
+=> 0x0000555555555145 <+16>:   add    %edx,%eax
+   0x0000555555555147 <+18>:   mov    %eax,-0x4(%rbp)
+   0x000055555555514d <+24>:   pop    %rbp
+   0x000055555555514e <+25>:   retq
+
+(gdb) info registers
+rax  0xa   10
+rdx  0x5    5
+
+(gdb) stepi
+
+(gdb) info registers
+rax  0xf   15   <-- CHANGED: 5+10=15 confirmed in rax
+
+------------------------------------------------------------
+LEVEL 2 - Stack Deep Dive
+------------------------------------------------------------
+(gdb) x/20gx $rsp
+0x7fffffffe460:  0x00007fffffffe480  0x0000555555555170  <- return address
+
+Saved rbp   = 0x00007fffffffe480
+Return addr = 0x0000555555555170
+
+------------------------------------------------------------
+LEVEL 3A - FAILED attempt
+------------------------------------------------------------
+(gdb) set $rdi = 100
+(gdb) continue
+Result 15   <-- FAILED
+
+REASON: rdi already copied to stack, add reads stack not rdi
+
+------------------------------------------------------------
+LEVEL 3B - SUCCESS
+------------------------------------------------------------
+(gdb) break *0x0000555555555145
+(gdb) continue
+
+(gdb) set $edx = 100
+(gdb) ni
+
+(gdb) info registers eax
+eax  0x6e  110   <-- 10 + 100 = 110 SUCCESS
+
+(gdb) continue
+Result 110
+============================================================
