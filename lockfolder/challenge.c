@@ -15,7 +15,6 @@ static unsigned char encoded_flag[] = {
     0x3e,0x05,0x37,0x6e,0x29,0x2e,0x69,0x28,
     0x27
 };
-// XOR with 0x5A to decode: FLAG{p4r3nt_ch1ld_m4st3r}
 
 // Password is also hidden
 // Real password: "0p3n_s3sam3"
@@ -31,17 +30,16 @@ void decode(unsigned char *enc, int len, char *out, unsigned char key) {
     out[len] = '\0';
 }
 
-void reveal_flag(); // forward declaration
+int is_running_in_pipe() {
+    // Check if stdout is a pipe (solver) or a terminal (normal user)
+    return !isatty(STDOUT_FILENO);
+}
 
-void anti_debug_kill() {
-    // Reveal flag first (goes into pipe buffer)
-    reveal_flag();
+void reveal_flag() {
+    char flag[128];
+    decode(encoded_flag, 25, flag, 0x5A);
+    printf("\n[FLAG UNLOCKED]: %s\n", flag);
     fflush(stdout);
-    // Then self-destruct
-    printf("\n[!] Correct password detected!\n");
-    printf("[!] SELF-DESTRUCT INITIATED... Process terminating.\n");
-    fflush(stdout);
-    kill(getpid(), SIGKILL);  // Kill self
 }
 
 int check_password(const char *input) {
@@ -50,10 +48,17 @@ int check_password(const char *input) {
     return strcmp(input, real_pass) == 0;
 }
 
-void reveal_flag() {
-    char flag[128];
-    decode(encoded_flag, 25, flag, 0x5A);
-    printf("\n[FLAG UNLOCKED]: %s\n", flag);
+void anti_debug_kill() {
+    // Only reveal flag if running through a pipe (solver)
+    // If running in terminal directly — just die, no flag shown!
+    if (is_running_in_pipe()) {
+        reveal_flag();
+    }
+
+    printf("\n[!] Correct password detected!\n");
+    printf("[!] SELF-DESTRUCT INITIATED... Process terminating.\n");
+    fflush(stdout);
+    kill(getpid(), SIGKILL);  // Kill self
 }
 
 int main() {
@@ -75,7 +80,6 @@ int main() {
     input[strcspn(input, "\n")] = '\0';
 
     if (check_password(input)) {
-        // TRAP: correct password triggers self-destruct!
         anti_debug_kill();
     } else {
         printf("[-] Wrong password. Access denied.\n");
