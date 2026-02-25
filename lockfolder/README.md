@@ -73,7 +73,7 @@ So why disassemble?
 We ran disassemble to read the assembly code and find exactly WHERE the strcmp call happens:
 
 When you ran disassemble inside GDB, it showed this:
-asm0x555555555284 <+16>:  encoded_pass → load password
+asm0x555555555284 <+16>:  lea encoded_pass → load password
 0x555555555298 <+36>:  call decode       → decode password  
 0x5555555552ab <+55>:  call strcmp@plt   ← THIS LINE!
 0x5555555552b0 <+60>:  test %eax,%eax
