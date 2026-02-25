@@ -66,11 +66,6 @@ Set breakpoint exactly there:
 break *0x00005555555552ab
 continue
 
-Why that happened:
-Breakpoint 1 was at the START of check_password:
-0x555555555278 <+0>:  push %rbp   ← we stopped HERE
-At this point the function just started — the decode() hasn't run yet — so the real password hasn't been loaded into any register yet! $rsi was still holding garbage from the previous function call.
-
 So why info registers?
 We ran info registers to see ALL register values at that moment to understand what's happening inside the CPU — which registers have valid memory addresses and which have garbage values like 0x1.
 
