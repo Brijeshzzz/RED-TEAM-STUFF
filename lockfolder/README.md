@@ -56,7 +56,7 @@ Type any fake password (e.g. `hello`), then:
 ```bash
 disassemble check_password
 ```
-Find the `strcmp` address in the output. It looks like:
+Find the `strcmp` address in the output. strcmp = a built-in C function that compares two strings — if they match it returns 0 (correct password), if they don't match it returns non-zero (wrong password)! It looks like:
 ```
 0x00005555555552ab <+55>: callq strcmp@plt   ← note this address!
 ```
@@ -65,6 +65,29 @@ Set breakpoint exactly there:
 ```bash
 break *0x00005555555552ab
 continue
+
+When you ran disassemble inside GDB, it showed this:
+asm0x555555555284 <+16>:  lea  encoded_pass → load password
+0x555555555298 <+36>:  call decode       → decode password  
+0x5555555552ab <+55>:  call strcmp@plt   ← THIS LINE!
+0x5555555552b0 <+60>:  test %eax,%eax
+
+We just looked for the line that said strcmp in the disassemble output!
+That address 0x5555555552ab is simply the memory location of that strcmp instruction in RAM.
+
+Simple analogy:
+
+Disassemble = book
+Every instruction = one line in the book
+Address = page number
+We just found the page number where strcmp is written!
+
+So break *0x5555555552ab means:
+
+"Stop the program exactly at the strcmp page number"
+
+At that exact moment — password is decoded and sitting in $rsi ready to be compared!
+
 ```
 Type fake password again, then read the real password from memory:
 ```bash
