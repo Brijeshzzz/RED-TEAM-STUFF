@@ -70,7 +70,7 @@ Type fake password again, then read the real password from memory:
 ```bash
 x/s $rsi
 ```
-At the time strcmp is called, the CPU loads both strings into registers:
+```At the time strcmp is called, the CPU loads both strings into registers:
 $rdi = your input      (what YOU typed)
 $rsi = real password   (what PROGRAM expects)
 So we do x/s $rsi because:
@@ -85,7 +85,7 @@ Simple analogy:
 strcmp is like a security guard comparing two ID cards
 $rdi = your fake ID
 $rsi = the real ID in his hand
-We just looked at his ID ($rsi) to copy it! 
+```We just looked at his ID ($rsi) to copy it!
 
 **Real password appears!** ✅
 
