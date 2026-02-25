@@ -85,7 +85,8 @@ Simple analogy:
 strcmp is like a security guard comparing two ID cards
 $rdi = your fake ID
 $rsi = the real ID in his hand
-We just looked at his ID ($rsi) to copy it!```
+We just looked at his ID ($rsi) to copy it!
+```
 
 **Real password appears!** ✅
 
