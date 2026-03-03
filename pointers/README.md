@@ -90,8 +90,8 @@ Total offset from buffer to auth = 76 bytes
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/yourusername/vault-exploitation
-cd vault-exploitation
+git clone https://github.com/Brijeshzzz/RED-TEAM-STUFF.git
+cd RED-TEAM-STUFF
 ```
 
 ### 2. Compile
