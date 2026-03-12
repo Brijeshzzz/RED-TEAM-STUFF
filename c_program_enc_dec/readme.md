@@ -445,3 +445,34 @@ This program:
 3. Uses that key to encrypt or decrypt files with **AES-256**
 4. Supports both **AES-GCM** and **AES-CBC** modes
 5. Stores necessary information (IV and tag) inside the encrypted file so it can be decrypted later.
+
+## Changes Made
+
+### Problem
+`handle_errors()` was calling `exit()` directly without freeing resources — causing memory and file handle leaks.
+
+### Fix
+Replaced `handle_errors()` with `cleanup_and_die()` which properly frees all resources before exit.
+
+**Old:**
+```c
+static void handle_errors(const char *msg) {
+    fprintf(stderr, "Error: %s\n", msg);
+    ERR_print_errors_fp(stderr);
+    exit(EXIT_FAILURE);
+}
+```
+
+**New:**
+```c
+static void cleanup_and_die(const char *msg, EVP_CIPHER_CTX *ctx, FILE *fin, FILE *fout) {
+    fprintf(stderr, "Error: %s\n", msg);
+    ERR_print_errors_fp(stderr);
+    if (ctx)  EVP_CIPHER_CTX_free(ctx);
+    if (fin)  fclose(fin);
+    if (fout) fclose(fout);
+    exit(EXIT_FAILURE);
+}
+```
+
+Every error call updated from `handle_errors("msg")` to `cleanup_and_die("msg", ctx, fin, fout)` so ctx and file handles are always closed before exit.
