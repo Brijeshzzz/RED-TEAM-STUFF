@@ -1,0 +1,235 @@
+kY@/lib64/ld-linux-x86-64.so.2
+fgets
+snprintf
+puts
+perror
+clock_gettime
+rand_r
+putchar
+fflush
+fopen
+getppid
+pthread_join
+usleep
+strstr
+ptrace
+pthread_create
+getpid
+stdout
+_exit
+__libc_start_main
+stderr
+srand
+__cxa_finalize
+fclose
+signal
+fwrite
+libc.so.6
+GLIBC_2.17
+GLIBC_2.34
+GLIBC_2.2.5
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_ITM_registerTMCloneTable
+ATUSH
+D$HfH
+D$hfH
+[]A\
+t$(H+t$
+L$ H+L$
+AVAUATUH
+EHL9
+)D$ fH
+)D$0fH
+)D$@
+)D$P
+)D$`
+)D$p
+VUUU
+[]A\A]A^A_
+PTE1
+u+UH
+AVAUI
+D2L$
+}/Mc
+[]A\A]A^A_
+ATUSH
+w6IcD
+[]A\A]
+CHI9
+AVAUATUSH
+D$<H
+T$(H
+|$<I
+t$(H
+[]A\A]A^A_
+[CORE] cycle=%lu  k1=0x%lX  k2=0x%lX  t=0x%lX   
+[SYSTEM] Integrity check failed. Aborting.
+   RAZZ SECURITY SYSTEMS  v3.7.1-kern   
+   Kernel Integrity Monitor              
+[BOOT] Loading kernel execution layer...
+[BOOT] Mapping secure memory regions...
+[BOOT] Initializing cryptographic subsystem...
+[BOOT] Performing hardware integrity check...
+[+] Switching to kernel execution layer...
+[KERN] Starting monitoring threads...
+[KERN] All subsystems operational.
+[KERN] Entering main monitoring loop.
+[KERN] Received shutdown signal.
+[KERN] Terminating worker threads...
+[KERN] Wiping core state from memory...
+[%s] health check ......... OK
+[%s] health check ......... WARN: minor drift (0x%04X)
+[%s] health check ......... ALERT: anomaly sector 0x%X
+[%s] health check ......... CRIT: checksum mismatch
+[KERN] Watchdog triggered 
+ subsystem %s unresponsive
+[KERN] Attempting recovery...
+[KERN] 
+ Status Summary 
+[KERN]  Threads:   3/3 active
+[KERN]  State:     k1=0x%lX  k2=0x%lX  t=0x%lX
+[KERN] 
+/proc/%d/comm
+lldb
+strace
+ltrace
+radare2
+x64dbg
+NETFILTER
+CRYPTO-ENG
+AUTH-MGR
+BLOCK-IO
+SCHED
+IPC-BUS
+DRM-CORE
+FS-CACHE
+HUGEPAGE
+AUDIT-LOG
+CGROUP-V2
+UEVENT
+KTHREAD
+WORKQUEUE
+[BOOT] Integrity check... OK
+[KERN] Privileged mode active
+[FATAL] thread init
+TIMER-WHEEL
+[KERN] All threads stopped.
+ recovered.
+[KERN]  Uptime:    %d cycles
+[KERN]  Checks:    %u/%d
+[KERN] Shutdown complete.
+;*3$"
+<<<<
+ZZZZ
+GCC: (Debian 15.2.0-16) 15.2.0
+Scrt1.o
+__abi_tag
+razz_challenge.c
+_chk_a
+_ekA
+_omA
+_chk_b
+_ekB
+_omB
+_chk_c
+_ekC
+_omC
+_decode_chunk
+CSWTCH.40
+_timing_canary
+g_debug_detected
+_eflag
+_fbo
+_fbk
+_generate_flag_impl
+sig_handler
+g_running
+thread_checker
+_fg_ptr
+g_state
+thread_corruptor
+thread_mutator
+_ad_layer1
+_ad_layer2
+_ad_layer3
+main.cold
+crtstuff.c
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+__FRAME_END__
+_DYNAMIC
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+putchar@GLIBC_2.2.5
+__libc_start_main@GLIBC_2.34
+_ITM_deregisterTMCloneTable
+stdout@GLIBC_2.2.5
+_exit@GLIBC_2.2.5
+puts@GLIBC_2.2.5
+clock_gettime@GLIBC_2.17
+getpid@GLIBC_2.2.5
+_edata
+fclose@GLIBC_2.2.5
+_fini
+rand_r@GLIBC_2.2.5
+snprintf@GLIBC_2.2.5
+srand@GLIBC_2.2.5
+fgets@GLIBC_2.2.5
+__data_start
+signal@GLIBC_2.2.5
+__gmon_start__
+__dso_handle
+_IO_stdin_used
+time@GLIBC_2.2.5
+fflush@GLIBC_2.2.5
+_end
+ptrace@GLIBC_2.2.5
+__bss_start
+main
+pthread_create@GLIBC_2.34
+fopen@GLIBC_2.2.5
+perror@GLIBC_2.2.5
+getppid@GLIBC_2.2.5
+fwrite@GLIBC_2.2.5
+__TMC_END__
+_ITM_registerTMCloneTable
+pthread_join@GLIBC_2.34
+__cxa_finalize@GLIBC_2.2.5
+_init
+strstr@GLIBC_2.2.5
+usleep@GLIBC_2.2.5
+stderr@GLIBC_2.2.5
+.symtab
+.strtab
+.shstrtab
+.note.gnu.build-id
+.interp
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.plt.got
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.note.gnu.property
+.note.ABI-tag
+.init_array
+.fini_array
+.data.rel.ro
+.dynamic
+.got.plt
+.data
+.bss
+.comment

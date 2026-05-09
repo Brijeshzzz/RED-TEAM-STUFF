@@ -1,0 +1,152 @@
+kY@/lib64/ld-linux-x86-64.so.2
+fgets
+snprintf
+puts
+perror
+clock_gettime
+rand_r
+putchar
+fflush
+fopen
+getppid
+pthread_join
+usleep
+strstr
+ptrace
+pthread_create
+getpid
+stdout
+_exit
+__libc_start_main
+stderr
+srand
+__cxa_finalize
+fclose
+signal
+fwrite
+libc.so.6
+GLIBC_2.17
+GLIBC_2.34
+GLIBC_2.2.5
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_ITM_registerTMCloneTable
+ATUSH
+D$HfH
+D$hfH
+[]A\
+t$(H+t$
+L$ H+L$
+AVAUATUH
+EHL9
+)D$ fH
+)D$0fH
+)D$@
+)D$P
+)D$`
+)D$p
+VUUU
+[]A\A]A^A_
+PTE1
+u+UH
+AVAUI
+D2L$
+}/Mc
+[]A\A]A^A_
+ATUSH
+w6IcD
+[]A\A]
+CHI9
+AVAUATUSH
+D$<H
+T$(H
+|$<I
+t$(H
+[]A\A]A^A_
+[CORE] cycle=%lu  k1=0x%lX  k2=0x%lX  t=0x%lX   
+[SYSTEM] Integrity check failed. Aborting.
+   RAZZ SECURITY SYSTEMS  v3.7.1-kern   
+   Kernel Integrity Monitor              
+[BOOT] Loading kernel execution layer...
+[BOOT] Mapping secure memory regions...
+[BOOT] Initializing cryptographic subsystem...
+[BOOT] Performing hardware integrity check...
+[+] Switching to kernel execution layer...
+[KERN] Starting monitoring threads...
+[KERN] All subsystems operational.
+[KERN] Entering main monitoring loop.
+[KERN] Received shutdown signal.
+[KERN] Terminating worker threads...
+[KERN] Wiping core state from memory...
+[%s] health check ......... OK
+[%s] health check ......... WARN: minor drift (0x%04X)
+[%s] health check ......... ALERT: anomaly sector 0x%X
+[%s] health check ......... CRIT: checksum mismatch
+[KERN] Watchdog triggered 
+ subsystem %s unresponsive
+[KERN] Attempting recovery...
+[KERN] 
+ Status Summary 
+[KERN]  Threads:   3/3 active
+[KERN]  State:     k1=0x%lX  k2=0x%lX  t=0x%lX
+[KERN] 
+/proc/%d/comm
+lldb
+strace
+ltrace
+radare2
+x64dbg
+NETFILTER
+CRYPTO-ENG
+AUTH-MGR
+BLOCK-IO
+SCHED
+IPC-BUS
+DRM-CORE
+FS-CACHE
+HUGEPAGE
+AUDIT-LOG
+CGROUP-V2
+UEVENT
+KTHREAD
+WORKQUEUE
+[BOOT] Integrity check... OK
+[KERN] Privileged mode active
+[FATAL] thread init
+TIMER-WHEEL
+[KERN] All threads stopped.
+ recovered.
+[KERN]  Uptime:    %d cycles
+[KERN]  Checks:    %u/%d
+[KERN] Shutdown complete.
+;*3$"
+<<<<
+ZZZZ
+GCC: (Debian 15.2.0-16) 15.2.0
+.shstrtab
+.note.gnu.build-id
+.interp
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.plt.got
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.note.gnu.property
+.note.ABI-tag
+.init_array
+.fini_array
+.data.rel.ro
+.dynamic
+.got.plt
+.data
+.bss
+.comment
